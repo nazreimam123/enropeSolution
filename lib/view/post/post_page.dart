@@ -17,7 +17,7 @@ class PostPage extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         else {
           return RefreshIndicator(
-            onRefresh: controller.fetchPosts,
+            onRefresh: controller.fetchusers,
             child: ListView.builder(
               itemCount: controller.posts.length,
               itemBuilder: (_, i) => ListTile(

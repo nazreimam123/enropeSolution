@@ -11,6 +11,8 @@ class post_model {
     id = json['id'];
     title = json['title'];
     body = json['body'];
+     
+    
   }
 
   Map<String, dynamic> toJson() {

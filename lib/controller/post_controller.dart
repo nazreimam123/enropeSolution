@@ -6,23 +6,23 @@ class PostController extends GetxController {
   final ApiServices _apiService = ApiServices();
 
   var posts = <post_model>[].obs;
-  var isLoading = true.obs;
+  RxBool isLoading = true.obs;
 
-  Future<void> fetchPosts() async {
+  Future<void> fetchusers() async {
     try {
-      isLoading(true);
-      final data = await _apiService.fetchPosts();
+      isLoading.value=true;
+      final data = await _apiService.getUsers();
       posts.assignAll(data);
     } catch (e) {
       throw Exception('Failed to load post');
     } finally {
-      isLoading(false);
+      isLoading.value=false;
     }
   }
 
   @override
   void onInit() {
     super.onInit();
-    fetchPosts();
+    fetchusers();
   }
 }
